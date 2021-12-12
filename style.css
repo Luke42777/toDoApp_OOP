@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+form {
+  margin-top: 20px;
+}
+input {
+  margin-left: 80px;
+  background-color: gainsboro;
+  font-family: arial;
+  font-size: 20px;
+  line-height: 40px;
+  outline: none;
+  width: 50vw;
+}
+section.search input {
+  display: block;
+}
+form input.task ~ button {
+  font-size: 25px;
+  font-family: arial;
+  line-height: 40px;
+}
+ul li button {
+  font-family: "arial";
+  font-weight: bold;
+  margin-left: 5px;
+  font-size: 15px;
+}
+h1 {
+  margin-left: 80px;
+  margin-top: 40px;
+  font-size: 30px;
+  font-family: arial;
+  font-weight: bold;
+}
+ul {
+  min-height: 50vh;
+  margin-left: 60px;
+  margin-top: 30px;
+  font-size: 18px;
+  font-family: arial;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+section.search ul {
+  font-family: arial;
+}
+li {
+  margin-left: 40px;
+  min-width: 100px;
+}
+
+h2 {
+  font-family: arial;
+  font-size: 30px;
+  margin: 0 0 30px 80px;
+}
