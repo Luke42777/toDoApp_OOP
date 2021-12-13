@@ -11,7 +11,7 @@ class Tasks{
         this.tasksList.length = 0;
     }
     removeTask(index){
-        this.tasksList.remove(index);
+        this.tasksList.splice(index, 1);
 
     }
     getTask(index){
@@ -20,7 +20,6 @@ class Tasks{
     getTasks(){
         return this.tasksList;
     }
-
 
 }
 
