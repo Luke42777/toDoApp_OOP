@@ -1,23 +1,30 @@
 class Print {
     constructor() {
+        //task section
         this.tasks = new Tasks();
         this.input = document.querySelector("input.task");
         this.spanTaskNumber = document.querySelector("h1.task span");
         this.form = document.querySelector("form");
         this.ul = document.querySelector("ul");
+        //search section
+        this.liWords = document.querySelectorAll("ul.words li");
+        this.searchInput = document.querySelector("input.search");
+        this.ulWords = document.querySelector("ul.words");
         this.form.addEventListener("submit", this.start.bind(this));
-        this.render();
+        this.searchInput.addEventListener("input", this.startSearch.bind(this));
+        this.renderTasks();
+
     }
 
-remove(e,index){
-        this.tasks.removeTask(index);  
+    remove(e, index) {
+        this.tasks.removeTask(index);
         this.tasks.taskCounter--;
         this.spanTaskNumber.textContent = this.tasks.taskCounter;
 
         e.target.parentNode.remove();
     }
 
-render(tasks = []) {
+    renderTasks(tasks = []) {
         this.ul.textContent = "";
         this.spanTaskNumber.textContent = this.tasks.taskCounter;
         for (let i = 0; i < tasks.length; i++) {
@@ -31,11 +38,11 @@ render(tasks = []) {
             this.ul.appendChild(li);
         }
         this.btns = document.querySelectorAll(".delete");
-        [...this.btns].forEach((btn,index) => { 
+        [...this.btns].forEach((btn, index) => {
             btn.addEventListener("click", this.remove.bind(this));
-    })
-}
-    
+        })
+    }
+
     start(e) {
         e.preventDefault();
         this.tasks.taskCounter++;
@@ -43,8 +50,12 @@ render(tasks = []) {
         const inputValue = new Input(this.input.value);
         this.input.value = "";
         this.tasks.addTask(inputValue.getInputValue());
-        
-        this.render(this.tasks.getTasks())
+
+        this.renderTasks(this.tasks.getTasks())
+    }
+    startSearch() {
+        const search = new Search(this.searchInput.value, this.liWords, this.ulWords);
+        search.filterWords();
     }
 
 };
